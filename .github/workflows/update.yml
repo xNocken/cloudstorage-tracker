@@ -1,0 +1,53 @@
+name: Update
+on:
+  schedule:
+    - cron: '*/15 * * * *' # runs every 15 minutes
+
+jobs:
+  check-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Cache cache folder
+        uses: actions/cache@v3
+        with:
+          path: ./cache/
+          key: cache
+          restore-keys: cache
+
+      - name: Install dependencies and build
+        run: |
+          yarn
+          yarn build
+
+      - name: Check for changes
+        id: changes
+        env:
+          CLIENT_ID: ec684b8c687f479fadea3cb2ad83f5c6
+          CLIENT_SECRET: e1f31c211f28413186262d37a13fc84d
+          BLACKLISTED_VERSIONS: '13.40'
+        run: |
+          node ./dist/src/index.js
+
+      - name: Commit Changes
+        id: commit
+        continue-on-error: true
+        run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add .
+            git commit -m "Check for updates"
+
+      - name: Push Changes
+        if: ${{ steps.commit.conclusion == 'success' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          branch: "main"
