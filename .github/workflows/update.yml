@@ -1,5 +1,6 @@
 name: Update
 on:
+  push:
   schedule:
     - cron: '*/15 * * * *' # runs every 15 minutes
 
@@ -16,6 +17,7 @@ jobs:
           node-version: 16
 
       - name: Download cache folder
+        continue-on-error: true
         uses: actions/download-artifact@v3
         with:
           path: ./cache
