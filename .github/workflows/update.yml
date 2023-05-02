@@ -15,12 +15,11 @@ jobs:
         with:
           node-version: 16
 
-      - name: Cache cache folder
-        uses: actions/cache@v3
+      - name: Download cache folder
+        uses: actions/download-artifact@v3
         with:
-          path: ./cache/
-          key: cache-${{ hashFiles('cache') }}
-          restore-keys: cache
+          path: ./cache
+          name: cache
 
       - name: Install dependencies and build
         run: |
@@ -51,3 +50,10 @@ jobs:
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           branch: "main"
+
+      - name: Upload cache folder
+        if: ${{ steps.commit.conclusion == 'success' }}
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./cache
+          name: cache
