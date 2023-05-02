@@ -16,13 +16,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Download cache folder
-        continue-on-error: true
-        uses: actions/download-artifact@v3
-        with:
-          path: ./cache
-          name: cache
-
       - name: Install dependencies and build
         run: |
           yarn
@@ -52,10 +45,3 @@ jobs:
         with:
           github_token: "${{ secrets.GITHUB_TOKEN }}"
           branch: "main"
-
-      - name: Upload cache folder
-        if: ${{ steps.commit.conclusion == 'success' }}
-        uses: actions/upload-artifact@v3
-        with:
-          path: ./cache
-          name: cache

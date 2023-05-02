@@ -7,7 +7,7 @@ import getToken from './utils/get-token';
 
 import type { CloudstorageResponse } from './types/response';
 
-const folders = ['cache', 'output', 'output/_persistent'];
+const folders = ['output', 'output/_persistent'];
 
 const fileRegex = /^(Branch-Release-(?<version>\d{1,2}\.\d{1,2})_)?((?<platform>[a-z\d]+)_)?(?<type>[a-z]+)\.ini$/i;
 
@@ -18,7 +18,7 @@ folders.forEach((folder) => {
 });
 
 (async () => {
-  const token = await getToken();
+  const { access_token: token } = await getToken();
   const updateId = new Date().toISOString().replace(/:/g, '-');
 
   console.log(`Update ID: ${updateId}`);
@@ -37,11 +37,13 @@ folders.forEach((folder) => {
 
   const cachedFiles: CloudstorageResponse[] = [];
 
-  if (fs.existsSync('cache/files.json')) {
-    cachedFiles.push(...<CloudstorageResponse[]>JSON.parse(fs.readFileSync('cache/files.json', 'utf8')));
+  if (fs.existsSync('output/files.json')) {
+    cachedFiles.push(...<CloudstorageResponse[]>JSON.parse(fs.readFileSync('output/files.json', 'utf8')));
   }
 
-  const files = <CloudstorageResponse[]>cloudstorageResponse.body;
+  // sort by filename so that the order is consistent
+  const files = (<CloudstorageResponse[]>cloudstorageResponse.body)
+    .sort((a, b) => a.filename.localeCompare(b.filename));
 
   const platforms: string[] = [];
   const configTypes: string[] = [];
@@ -180,7 +182,7 @@ folders.forEach((folder) => {
 
   await Promise.all(promises);
 
-  fs.writeFileSync('cache/files.json', JSON.stringify(files));
+  fs.writeFileSync('output/files.json', JSON.stringify(files, null, 2));
 
   Object.keys(results).forEach((platform) => {
     const [platformName, configType] = platform.split('-');
