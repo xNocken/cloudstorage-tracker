@@ -55,7 +55,7 @@ folders.forEach((folder) => {
     }
 
     if (!cachedFiles.length
-      || cachedFiles.find((cachedFile) => cachedFile.filename === file.filename && cachedFile.hash !== file.hash)) {
+      || !cachedFiles.find((cachedFile) => cachedFile.filename === file.filename && cachedFile.hash === file.hash)) {
       changedFiles.push(file.filename);
     }
 
