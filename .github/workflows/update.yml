@@ -19,7 +19,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ./cache/
-          key: cache
+          key: cache-${{ hashFiles('cache') }}
           restore-keys: cache
 
       - name: Install dependencies and build
