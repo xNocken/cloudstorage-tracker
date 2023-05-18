@@ -108,7 +108,9 @@ folders.forEach((folder) => {
   console.log(`Config types: ${configTypes.join(', ')}`);
   console.log('');
 
-  const promises = files.map(async (file) => {
+  const responses: string[] = [];
+
+  const promises = files.map(async (file, index) => {
     if (file.length === 0) {
       return;
     }
@@ -138,6 +140,18 @@ folders.forEach((folder) => {
     if (!mergableFiles.includes(file.filename)) {
       return;
     }
+
+    responses[index] = content;
+  });
+
+  await Promise.all(promises);
+
+  responses.forEach((content, index) => {
+    if (content === undefined) {
+      return;
+    }
+
+    const file = files[index];
 
     const getContent = () => {
       let a = `; -----------------------------------
@@ -179,8 +193,6 @@ folders.forEach((folder) => {
 
     results[`${platform}-${type}`] += getContent();
   });
-
-  await Promise.all(promises);
 
   fs.writeFileSync('output/files.json', JSON.stringify(files, null, 2));
 
