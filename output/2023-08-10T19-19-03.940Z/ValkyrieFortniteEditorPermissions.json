@@ -1,0 +1,132 @@
+{
+	"PropertyEditorStructPermissionList": {
+		"=": [
+			{
+				"Type": "/Script/PhysicsCore.BodyInstanceCore",
+				"AllowList": [ "bEnableGravity" ]
+			},
+			{
+				"Type": "/Script/Engine.BodyInstance",
+				"AllowList": [ "bNotifyRigidBodyCollision", "Collision", "bUseCCD", "DOFMode", "CustomDOFPlaneNormal" ]
+			},
+			{
+				"Type": "/Script/DataDrivenGameplayEventRouter.GameplayEventDescriptor",
+				"DenyList": [ "NetPolicy" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.CameraLookatTrackingSettings",
+				"AllowList": [ "bEnableLookAtTracking", "bDrawDebugLookAtTrackingPosition", "LookAtTrackingInterpSpeed", "ActorToTrack", "RelativeOffset", "bAllowRoll" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.CameraFilmbackSettings",
+				"AllowList": [ "SensorWidth", "SensorHeight", "SensorAspectRatio" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.NamedFilmbackPreset",
+				"AllowList": [ "Name", "FilmbackSettings" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.CameraLensSettings",
+				"AllowList": [ "MinFocalLength", "MaxFocalLength", "MinFStop", "MaxFStop", "MinimumFocusDistance", "DiaphragmBladeCount" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.NamedLensPreset",
+				"AllowList": [ "Name", "LensSettings" ]
+			},
+			{
+				"Type": "/Script/CinematicCamera.CameraFocusSettings",
+				"AllowList": [ "FocusMethod", "ManualFocusDistance", "TrackingFocusSettings", "bDrawDebugFocusPlane", "DebugFocusPlaneColor", "bSmoothFocusChanges", "FocusSmoothingInterpSpeed", "FocusOffset" ]
+			},
+			{
+				"Type": "/Script/ControlRig.ControlRigComponentMappedElement",
+				"AllowList": [ "ComponentReference", "TransformIndex", "TransformName", "ElementType", "ElementName", "Direction", "Offset", "Weight" ]
+			},
+			{
+				"Type": "/Script/Engine.MeshMergingSettings",
+				"AllowList": [ "MaterialSettings" ]
+			},
+			{
+				"Type": "/Script/Engine.MaterialProxySettings",
+				"AllowList": [ "bNormalMap", "bTangentMap", "bMetallicMap", "bRoughnessMap", "bSpecularMap", "bEmissiveMap" ]
+			},
+			{
+				"Type": "/Script/Engine.PostProcessSettings",
+				"AllowList": [
+					"BloomIntensity",
+					"BloomThreshold",
+					"SceneFringeIntensity",
+					"ChromaticAberrationStartOffset",
+					"LensFlareIntensity",
+					"VignetteIntensity",
+					"ColorSaturation",
+					"ColorContrast",
+					"ColorGamma",
+					"WeightedBlendables",
+					"FilmGrainIntensity",
+					"FilmGrainTexelSize",
+					"TemperatureType",
+					"WhiteTemp",
+					"WhiteTint",
+					"AutoExposureMethod",
+					"AutoExposureBias",
+					"AutoExposureApplyPhysicalCameraExposure",
+					"AutoExposureBiasCurve",
+					"AutoExposureMeterMask",
+					"AutoExposureMinBrightness",
+					"AutoExposureMaxBrightness",
+					"AutoExposureSpeedUp",
+					"AutoExposureSpeedDown",
+					"SceneColorTint",
+					"LumenSkylightLeaking",
+					"LumenFullSkylightLeakingDistance",
+					"LumenDiffuseColorBoost",
+					"AutoExposureMethod",
+					"AutoExposureBias",
+					"AutoExposureApplyPhysicalCameraExposure",
+					"AutoExposureBiasCurve",
+					"AutoExposureMeterMask",
+					"AutoExposureMinBrightness",
+					"AutoExposureMaxBrightness",
+					"AutoExposureSpeedUp",
+					"AutoExposureSpeedDown",
+					"AutoExposureLowPercent",
+					"AutoExposureHighPercent",
+					"HistogramLogMin",
+					"HistogramLogMax",
+					"LocalExposureHighlightContrastScale",
+					"LocalExposureShadowContrastScale",
+					"LocalExposureDetailStrength",
+					"LocalExposureBlurredLuminanceBlend",
+					"LocalExposureBlurredLuminanceKernelSizePercent",
+					"LocalExposureMiddleGreyBias",
+					"CameraShutterSpeed",
+					"CameraISO",
+					"DepthOfFieldFstop",
+					"DepthOfFieldMinFstop",
+					"DepthOfFieldBladeCount",
+					"MotionBlurAmount",
+					"MotionBlurMax",
+					"MotionBlurTargetFPS",
+					"MotionBlurPerObjectSize",
+					"Lens",
+					"Color Grading",
+					"Global Illumination",
+					"Rendering Features",
+					"Film Grain"
+				]
+			},
+			{
+				"Type": "/Script/Engine.SpatialHashRuntimeGrid",
+				"DenyList": [ "GridName", "Origin", "bBlockOnSlowStreaming", "Priority", "DebugColor", "bClientOnlyVisible", "HLODLayer" ]
+			},
+			{
+				"Type": "/Script/Engine.SoundModulationDefaultRoutingSettings",
+				"AllowList": [ "VolumeRouting", "VolumeModulationDestination" ]
+			},
+			{
+				"Type": "/Script/PhysicsUtilities.PhysAssetCreateParams",
+				"AllowList": [ "MinBoneSize", "MinWeldSize", "GeomType", "VertWeight", "bAutoOrientToBone", "bWalkPastSmall", "bBodyForAll", "bDisableCollisionsByDefault", "HullCount", "MaxHullVerts", "LevelSetResolution" ]
+			}
+		]
+	}
+}
