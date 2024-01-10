@@ -9,7 +9,13 @@ export interface TokenData {
   expires_at: string;
 }
 
+let tokenData: TokenData | null = null;
+
 export default async () => {
+  if (tokenData && new Date(tokenData.expires_at).getTime() - 1000 * 60 > Date.now()) {
+    return tokenData;
+  }
+
   const tokenResponse = await needle('post', 'https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token', {
     grant_type: 'client_credentials',
     token_type: 'eg1',
@@ -25,5 +31,7 @@ export default async () => {
     throw new Error('Failed to get token');
   }
 
-  return <TokenData>tokenResponse.body;
+  tokenData = <TokenData>tokenResponse.body;
+
+  return tokenData;
 };

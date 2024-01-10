@@ -1,3 +1,4 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
 
 import needle from 'needle';
@@ -17,7 +18,7 @@ folders.forEach((folder) => {
   }
 });
 
-(async () => {
+const doTheThing = async () => {
   const { access_token: token } = await getToken();
   const updateId = new Date().toISOString().replace(/:/g, '-');
 
@@ -211,4 +212,63 @@ folders.forEach((folder) => {
 
     fs.writeFileSync(`output/_persistent/${platformName}/${configType}.ini`, results[platform]);
   });
-})().finally(console.log);
+
+  let commitMessage = 'Update ';
+
+  if (changedFiles.length > 4) {
+    commitMessage += `${changedFiles.length} files`;
+    commitMessage += `\n-${changedFiles.join('\n-')}`;
+  } else {
+    commitMessage += changedFiles.join(', ');
+  }
+
+  execSync('git add output');
+  execSync(`git -c commit.gpgsign=false commit --author="github-actions@github.com" -m "${commitMessage}"`);
+  execSync('git push');
+
+  console.log('Updated');
+
+  console.log(changedFiles);
+
+  let fieldValue = '';
+
+  let overflowCount = 0;
+
+  changedFiles.forEach((file) => {
+    const a = `- ${file}\n`;
+
+    if (fieldValue.length + a.length > 1000) {
+      overflowCount += 1;
+
+      return;
+    }
+
+    fieldValue += a;
+  });
+
+  if (overflowCount) {
+    fieldValue += `- + ${overflowCount} more`;
+  }
+
+  const webhookResponse = await needle('post', env.WEBHOOK_URL, {
+    embeds: [{
+      title: 'Update',
+      description: `**${changedFiles.length}** files changed`,
+      fields: [{
+        name: 'Files',
+        value: fieldValue,
+      }],
+    }],
+  }, {
+    json: true,
+  });
+
+  if (webhookResponse.statusCode !== 204) {
+    console.log(webhookResponse.body);
+
+    throw new Error('Failed to send webhook');
+  }
+};
+
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+setInterval(doTheThing, 1000 * 30);
