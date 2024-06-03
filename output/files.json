@@ -42,6 +42,20 @@
     "doNotCache": false
   },
   {
+    "uniqueFilename": "532dc6866ade40c7b2f69fb2c9b5b3a0",
+    "filename": "AndroidJunoGameNativeDeviceProfiles.ini",
+    "hash": "df24a4fa42f9cda11da6d4f0bb2a84acbfcbde2c",
+    "hash256": "f87b241dae6632b49fe200071cdde38768357bc91394bdf742a2a2def712e1ae",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:37.190Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/7c62da50e1c84ff0b259e9688b0569f4-532dc6866ade40c7b2f69fb2c9b5b3a0"
+    },
+    "doNotCache": false
+  },
+  {
     "uniqueFilename": "24a115f1d5394b8f99647b5901f85a08",
     "filename": "Branch-Release-13.40_Android_Engine.ini",
     "hash": "8032e41659455d2bc89c3f77a09ad8e22c46359b",
@@ -296,14 +310,14 @@
   {
     "uniqueFilename": "3ced0f78652e4480a89e965244a4f6b0",
     "filename": "Branch-Release-30.00_DefaultGame.ini",
-    "hash": "0b7b04199e5b14ad4782054c47c02772c2dbbbce",
-    "hash256": "af087c8ba115b0bde1b8fc18457e8a9b2b31db15b3e791353cac26d14b8a3b54",
-    "length": 219219,
+    "hash": "b894c84a63248019aec72f9cb47b5d65fe8e1ae9",
+    "hash256": "175e1254bdfb0f23d5320782fe081e4994ecb10fb3cb5454c613522c1a773e4b",
+    "length": 222628,
     "contentType": "application/octet-stream",
-    "uploaded": "2024-05-31T08:03:38.090Z",
+    "uploaded": "2024-06-03T16:15:39.534Z",
     "storageType": "DSS",
     "storageIds": {
-      "DSS": "cloudstorage/Live/system/1/520a6cdfab9a4aa9a298d1bc7a57900f-3ced0f78652e4480a89e965244a4f6b0"
+      "DSS": "cloudstorage/Live/system/1/069dc993d2b94ef1bf31e0c6cc48c2e5-3ced0f78652e4480a89e965244a4f6b0"
     },
     "doNotCache": false
   },
@@ -1344,6 +1358,20 @@
     "doNotCache": false
   },
   {
+    "uniqueFilename": "8f29d8be2d1c464eb51b16f41f406a0d",
+    "filename": "PS4JunoGameNativeDeviceProfiles.ini",
+    "hash": "679e36413432f152559403329f1682c46f50f119",
+    "hash256": "a15a3179d3f3c3b6f79f13784ea9e18d0152f9f9718d2f5f04248bf7c6b5bb24",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:37.506Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/289172b4cb994155bc5ff2ef7a3de289-8f29d8be2d1c464eb51b16f41f406a0d"
+    },
+    "doNotCache": false
+  },
+  {
     "uniqueFilename": "dc24c42ffe9a4cc5ae3a9946b4e5e95d",
     "filename": "PS5_Engine.ini",
     "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
@@ -1400,6 +1428,20 @@
     "doNotCache": false
   },
   {
+    "uniqueFilename": "248d9bec1311419b81f08df4e1473940",
+    "filename": "PS5JunoGameNativeDeviceProfiles.ini",
+    "hash": "69ab9919d24d683cdd60991f17930c67982bc484",
+    "hash256": "da59bbfe563ccdb6b299da229cd08d059fb1f70d0ab317fcffec471d296b77c0",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:37.835Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/9bfd58c5de4340da81931d870394af8c-248d9bec1311419b81f08df4e1473940"
+    },
+    "doNotCache": false
+  },
+  {
     "uniqueFilename": "b22d3cad8e4f4ceeb5c55442f691b165",
     "filename": "Switch_Engine.ini",
     "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
@@ -1438,6 +1480,20 @@
     "storageType": "DSS",
     "storageIds": {
       "DSS": "cloudstorage/Live/system/1/5623e03c36634dea807eb296dc0bbfb2-e000dd0687b34cffa247532a8d7e4fd0"
+    },
+    "doNotCache": false
+  },
+  {
+    "uniqueFilename": "ee3aa8eba49c4a37a635d3231becad1e",
+    "filename": "SwitchJunoGameNativeDeviceProfiles.ini",
+    "hash": "219a5a07596051e0f2930041ca8dfe6d629437c3",
+    "hash256": "f3694fdb2a394531e26956163459af1e4071b7f5216461176d98baf8cb7ad562",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:38.140Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/85137d0f66ff4a3a976d648470f47aab-ee3aa8eba49c4a37a635d3231becad1e"
     },
     "doNotCache": false
   },
@@ -1494,6 +1550,20 @@
     "storageType": "DSS",
     "storageIds": {
       "DSS": "cloudstorage/Live/system/1/c7b5a8de5a824c75a840cd916271505c-b800b911053c4906a5bd399f46ae0055"
+    },
+    "doNotCache": false
+  },
+  {
+    "uniqueFilename": "dbfa6466d8a345ebb1ece39b5609c9f0",
+    "filename": "XB1JunoGameNativeDeviceProfiles.ini",
+    "hash": "679e36413432f152559403329f1682c46f50f119",
+    "hash256": "a15a3179d3f3c3b6f79f13784ea9e18d0152f9f9718d2f5f04248bf7c6b5bb24",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:38.492Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/acf3ae8cbb4748f3bc7ed14d531ed9ca-dbfa6466d8a345ebb1ece39b5609c9f0"
     },
     "doNotCache": false
   },
@@ -1592,6 +1662,20 @@
     "storageType": "DSS",
     "storageIds": {
       "DSS": "cloudstorage/Live/system/1/a0223122b5264ef092219050a07c5758-15326849197846eab3fd92a3aaa59b9e"
+    },
+    "doNotCache": false
+  },
+  {
+    "uniqueFilename": "311cc2f8c6fa4998b2f115ac52a70f9c",
+    "filename": "XSXJunoGameNativeDeviceProfiles.ini",
+    "hash": "69ab9919d24d683cdd60991f17930c67982bc484",
+    "hash256": "da59bbfe563ccdb6b299da229cd08d059fb1f70d0ab317fcffec471d296b77c0",
+    "length": 59,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-06-03T16:15:38.724Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/74ac54ad19984d6983cb7e0c7b54866a-311cc2f8c6fa4998b2f115ac52a70f9c"
     },
     "doNotCache": false
   }
