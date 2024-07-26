@@ -18,7 +18,22 @@ folders.forEach((folder) => {
   }
 });
 
+let isDoingTheThing = false;
+
 const doTheThing = async () => {
+  if (isDoingTheThing) {
+    console.log('Already doing the thing');
+
+    return;
+  }
+
+  isDoingTheThing = true;
+
+  const timeout = setTimeout(() => {
+    isDoingTheThing = false;
+    console.log('Timed out doing the thing');
+  }, 1000 * 60 * 5);
+
   const { access_token: token } = await getToken();
   const updateId = new Date().toISOString().replace(/:/g, '-');
 
@@ -57,8 +72,9 @@ const doTheThing = async () => {
       return;
     }
 
-    if (!cachedFiles.length
-      || !cachedFiles.find((cachedFile) => cachedFile.filename === file.filename && cachedFile.hash === file.hash)) {
+    if (!cachedFiles.length || !cachedFiles.find((cachedFile) => cachedFile.filename === file.filename
+      && new Date(cachedFile.uploaded) >= new Date(file.uploaded))
+    ) {
       changedFiles.push(file.filename);
     }
 
@@ -73,7 +89,7 @@ const doTheThing = async () => {
     const { version, platform, type } = match.groups;
 
     if (env.BLACKLISTED_VERSIONS.includes(version)) {
-      console.log(`Excluding ${file.filename} from merge because its version is blacklisted`);
+      // console.log(`Excluding ${file.filename} from merge because its version is blacklisted`);
 
       return;
     }
@@ -91,6 +107,9 @@ const doTheThing = async () => {
 
   if (!changedFiles.length) {
     console.log('No files changed');
+
+    isDoingTheThing = false;
+    clearTimeout(timeout);
 
     return;
   }
@@ -132,7 +151,7 @@ const doTheThing = async () => {
       throw new Error('Failed to get file');
     }
 
-    const content = (<Buffer>response.body).toString();
+    const content = (<Buffer>response.body).toString().replaceAll('\r\n', '\n');
 
     if (changedFiles.includes(file.filename)) {
       fs.writeFileSync(`output/${updateId}/${file.filename}`, content);
@@ -160,7 +179,7 @@ const doTheThing = async () => {
 ; -----------------------------------
 `;
 
-      a += content;
+      a += content.replaceAll('\r\n', '\n');
 
       if (a[a.length - 1] !== '\n') {
         a += '\n';
@@ -222,7 +241,7 @@ const doTheThing = async () => {
     commitMessage += changedFiles.join(', ');
   }
 
-  execSync('git add output');
+  execSync(`git add output/${updateId} output/_persistent output/files.json`);
   execSync(`git -c commit.gpgsign=false commit --author="github-actions@github.com" -m "${commitMessage}"`);
   execSync('git push');
 
@@ -251,6 +270,7 @@ const doTheThing = async () => {
   }
 
   const webhookResponse = await needle('post', env.WEBHOOK_URL, {
+    content: '<@&1195402951439691946>',
     embeds: [{
       title: 'Update',
       description: `**${changedFiles.length}** files changed`,
@@ -268,7 +288,10 @@ const doTheThing = async () => {
 
     throw new Error('Failed to send webhook');
   }
+
+  isDoingTheThing = false;
+  clearTimeout(timeout);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
-setInterval(doTheThing, 1000 * 30);
+setInterval(doTheThing, 1000 * 10);
