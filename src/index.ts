@@ -242,11 +242,10 @@ const doTheThing = async () => {
   }
 
   execSync(`git add output/${updateId} output/_persistent output/files.json`);
-  execSync(`git -c commit.gpgsign=false commit --author="github-actions@github.com" -m "${commitMessage}"`);
+  execSync(`git -c commit.gpgsign=false commit --author="41898282+github-actions[bot]@users.noreply.github.com" -m "${commitMessage}"`);
   execSync('git push');
 
   console.log('Updated');
-
   console.log(changedFiles);
 
   let fieldValue = '';
