@@ -156,14 +156,14 @@
   {
     "uniqueFilename": "c52c1f9246eb48ce9dade87be5a66f29",
     "filename": "DefaultRuntimeOptions.ini",
-    "hash": "017128a260a030a090f5ae5f34cf95aa4cb74bf4",
-    "hash256": "f3f8b293a648e1743b2f8259a2eb5955290c1a4bc0b37988045535430f4d58fa",
-    "length": 979,
-    "contentType": "text/plain",
-    "uploaded": "2024-12-05T13:14:04.474Z",
+    "hash": "1c5f6f46bd592147101b5cff011af74f6a33e62d",
+    "hash256": "7afeb2be2d2040a6b2dc08e056e049456fe7f7a833038389731457989ab2f682",
+    "length": 977,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-12-05T18:05:18.885Z",
     "storageType": "DSS",
     "storageIds": {
-      "DSS": "cloudstorage/Live/system/1/88bd4ead04d54d7d9ec44e897a324279-c52c1f9246eb48ce9dade87be5a66f29"
+      "DSS": "cloudstorage/Live/system/1/5812cbc959824fb98cb68834dcba8e61-c52c1f9246eb48ce9dade87be5a66f29"
     },
     "doNotCache": false
   },
@@ -808,6 +808,20 @@
     "storageType": "DSS",
     "storageIds": {
       "DSS": "cloudstorage/Live/system/1/c9f81cfb2c664bca895375bf5d1e52c9-a8e2eec195754563a9c8c559dc7d7a8b"
+    },
+    "doNotCache": false
+  },
+  {
+    "uniqueFilename": "7d524f65b03a49b88d3e5d5268480f1f",
+    "filename": "ValkyrieFortniteEditorPermissions.json",
+    "hash": "be949a0c73636fbfba8ee4d839aa870223a6e997",
+    "hash256": "e96f8dbcc0baa0c70d61b92334249cb1822b42beb7f835c2fe73a8ac18de8476",
+    "length": 322,
+    "contentType": "application/octet-stream",
+    "uploaded": "2024-12-05T18:05:18.611Z",
+    "storageType": "DSS",
+    "storageIds": {
+      "DSS": "cloudstorage/Live/system/1/a7e3b614e6da431fa6afbdd99e31cbb3-7d524f65b03a49b88d3e5d5268480f1f"
     },
     "doNotCache": false
   },

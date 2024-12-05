@@ -1,0 +1,11 @@
+{
+	"ValkyrieEditorSettings": {
+		"AllowedMenus": {
+			"LevelEditor.MainMenu.Select": {
+				"AllowList": {
+					"=": [ "SelectAll", "SelectNone", "InvertSelection", "Hierarchy", "Advanced", "SelectAllActorsOfSameClass", "ByTypeSection", "Lights", "Material", "SkeletalMeshes", "StaticMeshes" ]
+				}
+			}
+		}
+	}
+}
