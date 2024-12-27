@@ -8,7 +8,7 @@ import getToken from './utils/get-token';
 
 import type { CloudstorageResponse } from './types/response';
 
-const folders = ['output', 'output/_persistent'];
+const folders = ['output', 'output/_persistent', 'output/history'];
 
 const fileRegex = /^(Branch-Release-(?<version>\d{1,2}\.\d{1,2})_)?((?<platform>[a-z\d]+)_)?(?<type>[a-z]+)\.ini$/i;
 
@@ -39,7 +39,7 @@ const doTheThing = async () => {
 
   console.log(`Update ID: ${updateId}`);
 
-  const cloudstorageResponse = await needle('get', 'https://fortnite-public-service-prod11.ol.epicgames.com/fortnite/api/cloudstorage/system', {
+  const cloudstorageResponse = await needle('get', 'https://fngw-mcp-gc-livefn.ol.epicgames.com/fortnite/api/cloudstorage/system', {
     headers: {
       Authorization: `bearer ${token}`,
     },
@@ -114,7 +114,7 @@ const doTheThing = async () => {
     return;
   }
 
-  fs.mkdirSync(`output/${updateId}`, { recursive: true });
+  fs.mkdirSync(`output/history/${updateId}`, { recursive: true });
 
   if (fs.existsSync('output/_persistent')) {
     fs.rmSync('output/_persistent', { recursive: true });
@@ -154,7 +154,7 @@ const doTheThing = async () => {
     const content = (<Buffer>response.body).toString().replaceAll('\r\n', '\n');
 
     if (changedFiles.includes(file.filename)) {
-      fs.writeFileSync(`output/${updateId}/${file.filename}`, content);
+      fs.writeFileSync(`output/history/${updateId}/${file.filename}`, content);
     }
 
     if (!mergableFiles.includes(file.filename)) {
@@ -241,8 +241,8 @@ const doTheThing = async () => {
     commitMessage += changedFiles.join(', ');
   }
 
-  execSync(`git add output/${updateId} output/_persistent output/files.json`);
-  execSync(`git -c commit.gpgsign=false commit --author="41898282+github-actions[bot]@users.noreply.github.com" -m "${commitMessage}"`);
+  execSync(`git add output/history/${updateId} output/_persistent output/files.json`);
+  execSync(`git -c commit.gpgsign=false commit --author="github-actions@github.com" -m "${commitMessage}"`);
   execSync('git push');
 
   console.log('Updated');
