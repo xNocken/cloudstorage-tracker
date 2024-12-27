@@ -139,7 +139,7 @@ const doTheThing = async () => {
       return;
     }
 
-    const response = await needle('get', `https://fortnite-public-service-prod11.ol.epicgames.com/fortnite/api/cloudstorage/system/${file.uniqueFilename}`, {
+    const response = await needle('get', `https://fngw-mcp-gc-livefn.ol.epicgames.com/fortnite/api/cloudstorage/system/${file.uniqueFilename}`, {
       headers: {
         Authorization: `bearer ${token}`,
       },
